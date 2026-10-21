@@ -1,13 +1,18 @@
-cc_binary {
-    name: "rmtfs",
-    vendor: true,
-    srcs: [
-        "qmi_rmtfs.c",
-        "rmtfs.c",
-        "rproc.c",
-        "sharedmem.c",
-        "storage.c",
-        "util.c",
-    ],
-    shared_libs: ["libqrtr"],
+package { default_applicable_licenses: ["aera_rmtfs_license"] }
+license {
+    name: "aera_rmtfs_license",
+    visibility: [":__subpackages__"],
+    license_kinds: ["SPDX-license-identifier-BSD-3-Clause"],
+    license_text: ["LICENSE"],
+}
+filegroup {
+    name: "aera_rmtfs_sources",
+    srcs: ["rmtfs.c", "qmi_rmtfs.c", "rproc.c", "storage.c", "util.c"],
+    visibility: ["//device/oneplus/infiniti/mobile_data"],
+}
+cc_library_headers {
+    name: "aera_rmtfs_headers",
+    recovery_available: true,
+    export_include_dirs: ["."],
+    visibility: ["//device/oneplus/infiniti/mobile_data"],
 }
