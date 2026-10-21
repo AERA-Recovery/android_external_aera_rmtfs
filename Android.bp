@@ -8,11 +8,11 @@ license {
 filegroup {
     name: "aera_rmtfs_sources",
     srcs: ["rmtfs.c", "qmi_rmtfs.c", "rproc.c", "storage.c", "util.c"],
-    visibility: ["//device/oneplus/infiniti/mobile_data"],
+    visibility: ["//device:__subpackages__"],
 }
 cc_library_headers {
     name: "aera_rmtfs_headers",
     recovery_available: true,
     export_include_dirs: ["."],
-    visibility: ["//device/oneplus/infiniti/mobile_data"],
+    visibility: ["//device:__subpackages__"],
 }
